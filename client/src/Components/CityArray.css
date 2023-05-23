@@ -8,11 +8,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #636262;
+    background-color: #5b5b5b;
     justify-content: center;
     padding: 10px;
     border-radius: 4px;
-    -webkit-text-fill-color: rgb(196, 122, 25); 
+    -webkit-text-fill-color: rgb(249, 162, 75); 
   } 
   
   .city-image {

@@ -48,7 +48,7 @@ return (
             </>
           )}
             <div className = "city-image">
-          {isFirstPage && city.name && <img src={city.url} className="city-image" alt={city.name} />}
+          {isFirstPage && city.name && <img src={city.url} className="city-image" alt={city.name} />} 
           </div>
         </div>
       ) : (
@@ -58,5 +58,6 @@ return (
   </div>
 );
 }
+
 
 export default CityDetails;

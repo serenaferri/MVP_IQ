@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import CityArray from './Components/CityArray.jsx'
 import CityDetails from './Components/CityDetails.jsx';
-import { BrowserRouter as Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
