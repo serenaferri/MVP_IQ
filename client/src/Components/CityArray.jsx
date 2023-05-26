@@ -4,9 +4,14 @@ import './CityArray.css';
 import { useNavigate } from 'react-router-dom';
 
 function cityArray(city) {
+  function getCities(){
+    fetch("/api/cities")
+    .then((res) => res.json())
+      console.log(json);
+  };
 
   const navigate = useNavigate ();
-
+  
 
   const handleCityDetailsClick = (city) => {
     navigate(`/city/${city.id}`);
@@ -27,7 +32,6 @@ function cityArray(city) {
        </div>
       ))};
       
-
 
     </div>
   );

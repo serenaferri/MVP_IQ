@@ -2,9 +2,6 @@ var express = require("express");
 var router = express.Router();
 const db = require("../model/helper");
 
-router.get("/", (req, res) => {
-  res.send("Welcome to the API");
-});
 
 router.get("/cities", (req, res) => {
   // Send back the full list of items
@@ -22,20 +19,20 @@ router.get("/cities/:id", async (req, res) => {
   // Send back the full list of items
   try {
     let result = await db(sql);
-    let items = result.data;
+    let city = result.data;
 
-    if (items.length === 0) {
+    if (city.length === 0) {
       // if items array is empty... no item found
-      res.status(404).send({ error: "Item not found" });
+      res.status(404).send({ error: "City not found" });
     } else {
-      res.send(items[0]);
+      res.send(city[0]);
     }
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
 });
 
-router.post("/cities", async (req, res) => {
+/*router.post("/cities", async (req, res) => {
   // NOTE: No check for 404 because just inserting
   // The request's body is available in req.body
   let { text, complete } = req.body; // expect body to have text
@@ -57,9 +54,9 @@ router.post("/cities", async (req, res) => {
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
-});
+});/*
 
-router.put("/cities/:city_id", async (req, res) => {
+/*router.put("/cities/:city_id", async (req, res) => {
   // NOTE: PUT REPLACES THE ENTIRE ARRAY
   // The request's body is available in req.body
   let { text, complete } = req.body; // expect body to have text and complete properties
@@ -113,6 +110,6 @@ router.delete("/cities/:city_id", async (req, res) => {
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
-});
+});*/
 
 module.exports = router;
