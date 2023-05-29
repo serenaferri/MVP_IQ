@@ -4,7 +4,7 @@ const db = require("../model/helper");
 
 
 router.get("/cities", (req, res) => {
-  // Send back the full list of items
+  // Send back the full list of cities
   db("SELECT * FROM cities ORDER BY id ASC;")
     .then((results) => {
       res.send(results.data);
@@ -16,13 +16,13 @@ router.get("/cities", (req, res) => {
 router.get("/cities/:id", async (req, res) => {
   let id = req.params.id;
   let sql = `SELECT * FROM cities WHERE id = ${id}`;
-  // Send back the full list of items
+  // Send back the full list of cities
   try {
     let result = await db(sql);
     let city = result.data;
 
     if (city.length === 0) {
-      // if items array is empty... no item found
+      // if city array is empty... no city found
       res.status(404).send({ error: "City not found" });
     } else {
       res.send(city[0]);

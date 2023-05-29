@@ -4,11 +4,11 @@ import './CityArray.css';
 import { useNavigate } from 'react-router-dom';
 
 function cityArray(city) {
-  function getCities(){
+  useEffect(() => {
     fetch("/api/cities")
-    .then((res) => res.json())
-      console.log(json);
-  };
+      .then(res => res.json())
+  }, []);
+ 
 
   const navigate = useNavigate ();
   
@@ -32,7 +32,6 @@ function cityArray(city) {
        </div>
       ))};
       
-
     </div>
   );
 }
